@@ -40,9 +40,16 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
     <Reference Include="System.Data.SQLite.EF6, Version=1.0.115.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.EF6.1.0.115.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
     </Reference>
@@ -56,21 +63,9 @@
   <ItemGroup>
     <Compile Include="EntityConfigurations\EntityConfigurationsForPaymentStatus.cs" />
     <Compile Include="EntityConfigurations\EntityConfigurationsForPayment.cs" />
-    <Compile Include="Migrations\202109121801519_InitialCreate.cs" />
-    <Compile Include="Migrations\202109121801519_InitialCreate.designer.cs">
-      <DependentUpon>202109121801519_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109121842553_RemovePaymentStstusTable.cs" />
-    <Compile Include="Migrations\202109121842553_RemovePaymentStstusTable.designer.cs">
-      <DependentUpon>202109121842553_RemovePaymentStstusTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109122051003_EditPaymentTable.cs" />
-    <Compile Include="Migrations\202109122051003_EditPaymentTable.designer.cs">
-      <DependentUpon>202109122051003_EditPaymentTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109122136511_UpdateConfigForPayment.cs" />
-    <Compile Include="Migrations\202109122136511_UpdateConfigForPayment.designer.cs">
-      <DependentUpon>202109122136511_UpdateConfigForPayment.cs</DependentUpon>
+    <Compile Include="Migrations\202109140106127_UpdateToEfcore.cs" />
+    <Compile Include="Migrations\202109140106127_UpdateToEfcore.designer.cs">
+      <DependentUpon>202109140106127_UpdateToEfcore.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PaymentDbContext.cs" />
@@ -93,17 +88,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109121801519_InitialCreate.resx">
-      <DependentUpon>202109121801519_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109121842553_RemovePaymentStstusTable.resx">
-      <DependentUpon>202109121842553_RemovePaymentStstusTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109122051003_EditPaymentTable.resx">
-      <DependentUpon>202109122051003_EditPaymentTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109122136511_UpdateConfigForPayment.resx">
-      <DependentUpon>202109122136511_UpdateConfigForPayment.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109140106127_UpdateToEfcore.resx">
+      <DependentUpon>202109140106127_UpdateToEfcore.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

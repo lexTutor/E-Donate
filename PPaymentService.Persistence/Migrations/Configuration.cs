@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "PaymentService.Persistence.PaymentDbContext";
         }
 
         protected override void Seed(PaymentService.Persistence.PaymentDbContext context)

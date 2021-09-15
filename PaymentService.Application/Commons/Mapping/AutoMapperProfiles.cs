@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using PaymentService.Domain.DataTransfer;
+using PaymentService.Domain.DataTransfer.AccountDtos;
 using PaymentService.Domain.DataTransfer.FlutterwaveDtos;
 using PaymentService.Domain.Entities;
 
@@ -15,6 +16,8 @@ namespace PaymentService.Application.Commons.Mapping
             CreateMap<Payment, PaymentDetailsResult>();
             CreateMap<RecievePaymentDto, PaystackRequestDto>();
             CreateMap<RecievePaymentDto, FlutterRequestDto>();
+            CreateMap<RegisterationRequestDto, AppUser>();
+            CreateMap<AppUser, UserResponseDto>();
         }
     }
 }

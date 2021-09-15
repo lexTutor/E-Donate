@@ -8,6 +8,7 @@ namespace PaymentService.API
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.EnableCors();
             config.MapHttpAttributeRoutes();
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;

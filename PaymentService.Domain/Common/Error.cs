@@ -9,5 +9,6 @@ namespace PaymentService.Domain.Common
         public string PropertyName { get; set; }
         public string PropertyValue { get; set; }
         public bool HasValidationErrors { get; set; }
+        public string Others { get; set; }
     }
 }
