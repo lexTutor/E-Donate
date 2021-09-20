@@ -99,6 +99,8 @@ namespace PaymentService.Infrastructure.SignedContracts
             response.IsSuccess = true;
             response.Message = "Payment intent created successfully";
 
+            response.Data = await SavePaymentDetails(result.Data.AuthorizationUrl, result.Data.Reference, payStackMap.Amount);
+
             return response;
         }
 

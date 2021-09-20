@@ -17,6 +17,7 @@ namespace PaymentService.Application.Commons.Mapping
             CreateMap<RecievePaymentDto, PaystackRequestDto>();
             CreateMap<RecievePaymentDto, FlutterRequestDto>();
             CreateMap<RegisterationRequestDto, AppUser>();
+            CreateMap<PaystackReturnDto, PaymentResultDTO>();
             CreateMap<AppUser, UserResponseDto>();
         }
     }

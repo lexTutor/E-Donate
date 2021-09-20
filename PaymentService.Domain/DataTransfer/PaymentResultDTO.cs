@@ -12,7 +12,7 @@ namespace PaymentService.Domain.DataTransfer
         public string PaymentId { get; set; }
         [JsonProperty("paymentStatus")]
         public string PaymentStatus { get; set; }
-        [JsonProperty("paymentUrl")]
+        [JsonProperty("AuthorizationUrl")]
         public string PaymentUrl { get; set; }
     }
 }
