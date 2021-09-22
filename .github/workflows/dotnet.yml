@@ -13,5 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
-      working-directory: ./Dockerfile
+      working-directory: E-Donate/Dockerfile
       run: docker build -t aspnetapp .
