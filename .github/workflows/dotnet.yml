@@ -19,4 +19,4 @@ jobs:
       run: |
         winpty docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
         winpty heroku container:push web -a $APP_NAME
-        winptyheroku container:release web -a $APP_NAME
+        winpty heroku container:release web -a $APP_NAME
