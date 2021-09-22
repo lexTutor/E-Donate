@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Unity;
 using Unity.WebApi;
 using System.Configuration;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
+using PaymentService.Domain.Entities;
 
 namespace PaymentService.API
 {
@@ -17,12 +20,13 @@ namespace PaymentService.API
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
+            var container = new UnityContainer();
             container.RegisterType<PaymentDbContext>();
             container.RegisterType(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             container.RegisterType<IPaymentService, PaymentServiceExecutor>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             container.RegisterType<IRequestHandler, HttpClientRequestHandler>();
+            container.RegisterType<IUserService, UserService>();
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new AutoMapperProfiles());

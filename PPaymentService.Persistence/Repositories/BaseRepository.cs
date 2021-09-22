@@ -1,11 +1,8 @@
-﻿using PaymentService.Application.Commons.CustomExceptions;
-using PaymentService.Application.Contracts;
+﻿using PaymentService.Application.Contracts;
 using PaymentService.Domain.Entities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PaymentService.Persistence.Repositories

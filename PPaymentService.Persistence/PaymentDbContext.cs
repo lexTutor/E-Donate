@@ -1,4 +1,5 @@
-﻿using PaymentService.Domain.Entities;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using PaymentService.Domain.Entities;
 using PaymentService.Persistence.EntityConfigurations;
 using System;
 using System.Data.Entity;
@@ -8,15 +9,20 @@ using System.Threading.Tasks;
 
 namespace PaymentService.Persistence
 {
-    public class PaymentDbContext : DbContext
+    public class PaymentDbContext : IdentityDbContext<AppUser>
     {
-        public PaymentDbContext() : base("PaymentDatabase")
+        public PaymentDbContext() :
+            base("PaymentDatabase", throwIfV1Schema: false)
         {
-
+            Configuration.LazyLoadingEnabled = true;
         }
         public DbSet<Payment> Payments { get; set; }
         //public DbSet<PaymentStatus> PaymentStatuses { get; set; }
 
+        public static PaymentDbContext Create()
+        {
+            return new PaymentDbContext();
+        }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
