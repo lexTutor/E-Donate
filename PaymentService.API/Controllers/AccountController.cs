@@ -25,7 +25,7 @@ namespace PaymentService.API.Controllers
         }
 
 
-
+        //Usermanager property
         public ApplicationUserManager _userManager
         { 
             get
