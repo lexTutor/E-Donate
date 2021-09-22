@@ -16,5 +16,5 @@ jobs:
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         APP_NAME: ${{ 'e-donate' }}
-      working-directory: ./E-Donate/Dockerfile
+      working-directory: ../Dockerfile
       run: docker build -t aspnetapp .
