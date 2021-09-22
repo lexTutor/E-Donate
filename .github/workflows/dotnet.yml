@@ -16,5 +16,4 @@ jobs:
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         APP_NAME: ${{ 'e-donate' }}
-      run: |
-        winpty docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+      run: docker build -t aspnetapp .
