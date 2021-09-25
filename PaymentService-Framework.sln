@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.API", "PaymentService.API\PaymentService.API.csproj", "{E2C6D59E-A0AD-45BE-925F-E12E5ED8835A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.API.IntegrationTest", "PaymentIntegrationTest\PaymentService.API.IntegrationTest.csproj", "{DFA73B21-FBF5-4330-A426-026DE5AAAD39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.API.IntegrationTest", "PaymentService.API.IntegrationTest\PaymentService.API.IntegrationTest.csproj", "{DFA73B21-FBF5-4330-A426-026DE5AAAD39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
