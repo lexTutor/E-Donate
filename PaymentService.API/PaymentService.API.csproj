@@ -326,6 +326,7 @@
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\registry.hub.docker.com_chibuikemakpaka.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PaymentService.Application\PaymentService.Application.csproj">

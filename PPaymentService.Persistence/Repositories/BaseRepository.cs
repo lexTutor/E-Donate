@@ -1,7 +1,9 @@
 ﻿using PaymentService.Application.Contracts;
 using PaymentService.Domain.Entities;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -38,5 +40,37 @@ namespace PaymentService.Persistence.Repositories
         {
             _entity.Remove(entity);
         }
+
+        public virtual IQueryable<T> Get(
+        Expression<Func<T, bool>> filter = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        params string[] includedProperties)
+        {
+            IQueryable<T> query = _entity;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            if (includedProperties != null)
+            {
+                foreach (var includeProperty in includedProperties)
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+
+            if (orderBy != null)
+            {
+                return orderBy(query);
+            }
+            else
+            {
+                return query;
+            }
+        }
+
     }
 }
