@@ -1,8 +1,4 @@
 node {
-    triggers
-        {
-            pollSCM('* * * * *')
-        }
     stage('Checkout') { 
         // for display purposes
         //Implicit checkout: Already mapped to the branch from Jenkins
