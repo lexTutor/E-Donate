@@ -1,5 +1,5 @@
 node {
-    agent Any
+    agent any
     triggers
         {
             pollSCM('* * * * *')
