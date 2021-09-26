@@ -1,11 +1,10 @@
-pipeline {
-    agent any
+node {
+    agent Any
     triggers
         {
             pollSCM('* * * * *')
         }
-    stages{
-            stage('Checkout') { 
+    stage('Checkout') { 
         // for display purposes
         //Implicit checkout: Already mapped to the branch from Jenkins
         }
@@ -19,4 +18,3 @@ pipeline {
             bat 'C:/ProgramData/chocolatey/lib/XUnit/tools/xunit.console.exe PaymentService.API.IntegrationTest/bin/Debug/net472/PaymentService.API.IntegrationTest.dll'
         }
     }
-}
