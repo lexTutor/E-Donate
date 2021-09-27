@@ -10,9 +10,15 @@ namespace PaymentService.API.IntegrationTest
     public class BasicTests
     {
         [Fact]
-        public void Sahould_Be_True()
+        public void Should_Be_True()
         {
             Assert.True(true);
+        }
+
+        [Fact]
+        public void Should_be_False()
+        {
+            Assert.False(false);
         }
     }
 }
