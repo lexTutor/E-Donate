@@ -13,7 +13,10 @@ pipeline{
         }
         stage('Test')
         {
-                    bat 'C:/ProgramData/chocolatey/lib/XUnit/tools/xunit.console.exe PaymentService.API.IntegrationTest/bin/Debug/net472/PaymentService.API.IntegrationTest.dll'
+            steps{
+                                    bat 'C:/ProgramData/chocolatey/lib/XUnit/tools/xunit.console.exe PaymentService.API.IntegrationTest/bin/Debug/net472/PaymentService.API.IntegrationTest.dll'
+
+            }
         }
     }
 }
