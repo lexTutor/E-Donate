@@ -18,7 +18,6 @@ namespace PaymentService.API
 
         public void ConfigureAuth(IAppBuilder app)
         {
-            app.UseCors(CorsOptions.AllowAll);
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(PaymentDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
