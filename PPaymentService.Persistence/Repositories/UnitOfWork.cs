@@ -13,7 +13,7 @@ namespace PaymentService.Persistence.Repositories
 
         public UnitOfWork(PaymentDbContext context)
         {
-            _ctx = context;
+            _ctx = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public IBaseRepository<Payment> PaymentRepository => new BaseRepository<Payment>(_ctx);

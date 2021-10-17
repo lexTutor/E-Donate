@@ -7,13 +7,13 @@ namespace PPaymentService.Persistence.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class UpdateToEfcore : IMigrationMetadata
+    public sealed partial class Testing : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateToEfcore));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Testing));
         
         string IMigrationMetadata.Id
         {
-            get { return "202109140106127_UpdateToEfcore"; }
+            get { return "202109301116280_Testing"; }
         }
         
         string IMigrationMetadata.Source

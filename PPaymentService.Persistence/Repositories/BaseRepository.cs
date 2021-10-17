@@ -16,7 +16,7 @@ namespace PaymentService.Persistence.Repositories
 
         public BaseRepository(PaymentDbContext dbContext)
         {
-            _dbContext = dbContext;
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             _entity = _dbContext.Set<T>();
 
         }
@@ -55,7 +55,7 @@ namespace PaymentService.Persistence.Repositories
 
             if (includedProperties != null)
             {
-                foreach (var includeProperty in includedProperties)
+                foreach (string includeProperty in includedProperties)
                 {
                     query = query.Include(includeProperty);
                 }

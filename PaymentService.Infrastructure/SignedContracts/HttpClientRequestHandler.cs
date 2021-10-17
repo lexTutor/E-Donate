@@ -25,7 +25,7 @@ namespace PaymentService.Infrastructure.SignedContracts
             if (!string.IsNullOrWhiteSpace(authorization))
                 _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authorization);
 
-            var result = await _client.GetAsync(new Uri(url));
+         HttpResponseMessage result = await _client.GetAsync(new Uri(url));
 
             string content = await result.Content.ReadAsStringAsync();
 
@@ -37,7 +37,7 @@ namespace PaymentService.Infrastructure.SignedContracts
             if (!string.IsNullOrWhiteSpace(authorization))
                 _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authorization);
 
-            var serializedModel = JsonConvert.SerializeObject(requestData);
+         string serializedModel = JsonConvert.SerializeObject(requestData);
 
             var content = new StringContent(serializedModel, Encoding.UTF8, "application/json");
 
@@ -45,7 +45,7 @@ namespace PaymentService.Infrastructure.SignedContracts
 
             string responseContent = await response.Content.ReadAsStringAsync();
 
-            var result = JsonConvert.DeserializeObject<TRes>(responseContent);
+            TRes result = JsonConvert.DeserializeObject<TRes>(responseContent);
 
             return result;
         }

@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using Microsoft.Owin.Security.DataProtection;
 using PaymentService.Domain.Entities;
 using PaymentService.Persistence;
 
@@ -33,7 +34,7 @@ namespace PaymentService.API.App_Start
                 RequireUppercase = true,
             };
 
-            var dataProtectionProvider = options.DataProtectionProvider;
+         IDataProtectionProvider dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider = new DataProtectorTokenProvider<AppUser>(dataProtectionProvider.Create("ASP.NET Identity"));
