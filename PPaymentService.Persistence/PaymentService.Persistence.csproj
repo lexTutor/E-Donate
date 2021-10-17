@@ -70,6 +70,10 @@
     <Compile Include="Migrations\202109301116280_Testing.designer.cs">
       <DependentUpon>202109301116280_Testing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110172057034_PaymentUpdates.cs" />
+    <Compile Include="Migrations\202110172057034_PaymentUpdates.designer.cs">
+      <DependentUpon>202110172057034_PaymentUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PaymentDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +98,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202109301116280_Testing.resx">
       <DependentUpon>202109301116280_Testing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110172057034_PaymentUpdates.resx">
+      <DependentUpon>202110172057034_PaymentUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

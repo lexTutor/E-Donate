@@ -1,6 +1,8 @@
 ﻿using PaymentService.Application.Contracts;
 using PaymentService.Domain.Common;
 using PaymentService.Domain.DataTransfer;
+using System.Collections;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -19,6 +21,16 @@ namespace PaymentService.API.Controllers
       public PaymentController(IPaymentService paymentService)
       {
          _paymentService = paymentService;
+      }
+
+      [HttpGet]
+      [Route("get-all")]
+      public async Task<HttpResponseMessage> GetPaymentHistory()
+      {
+         Response<IEnumerable<PaymentHistoryDTO>> result = await _paymentService.GetPaymentHistory();
+         return !result.IsSuccess
+                ? Request.CreateResponse(HttpStatusCode.BadRequest, result)
+                : Request.CreateResponse(HttpStatusCode.OK, result);
       }
 
       [HttpPost]

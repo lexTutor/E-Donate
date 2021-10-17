@@ -9,6 +9,8 @@ using PaymentService.Domain.DataTransfer.FlutterwaveDtos;
 using PaymentService.Domain.DataTransfer.PaystackDtos;
 using PaymentService.Domain.Entities;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Security.Cryptography;
@@ -51,9 +53,14 @@ namespace PaymentService.Infrastructure.SignedContracts
          return response;
       }
 
-      public Task<Response<PaymentResultDTO>> GetPaymentHistory()
+      public async Task<Response<IEnumerable<PaymentHistoryDTO>>> GetPaymentHistory()
       {
-         throw new NotImplementedException();
+         Response<IEnumerable<PaymentHistoryDTO>> response = new Response<IEnumerable<PaymentHistoryDTO>>();
+         response.Data = _mapper.Map<IEnumerable<PaymentHistoryDTO>>(_UOW.PaymentRepository.Get());
+         response.IsSuccess = true;
+         response.Message = "All payment details";
+
+         return response;
       }
 
       public async Task<Response<PaymentResultDTO>> MakePaymentWithFlutterWave(RecievePaymentDto model)
@@ -77,7 +84,7 @@ namespace PaymentService.Infrastructure.SignedContracts
 
          response.IsSuccess = true;
          response.Message = "Payment intent created successfully";
-         response.Data = await SavePaymentDetails(result.Data.Link, flutterModel.Reference, flutterModel.Amount);
+         response.Data = await SavePaymentDetails(result.Data.Link, flutterModel.Reference, flutterModel.Amount, "flutter_wave", model.Email);
 
          return response;
       }
@@ -100,7 +107,7 @@ namespace PaymentService.Infrastructure.SignedContracts
          response.IsSuccess = true;
          response.Message = "Payment intent created successfully";
 
-         response.Data = await SavePaymentDetails(result.Data.AuthorizationUrl, result.Data.Reference, payStackMap.Amount);
+         response.Data = await SavePaymentDetails(result.Data.AuthorizationUrl, result.Data.Reference, payStackMap.Amount, "paystack", model.Email);
          return response;
       }
 
@@ -169,14 +176,16 @@ namespace PaymentService.Infrastructure.SignedContracts
          return;
       }
 
-      private async Task<PaymentResultDTO> SavePaymentDetails(string link, string reference, decimal amount)
+      private async Task<PaymentResultDTO> SavePaymentDetails(string link, string reference, decimal amount, string client, string email)
       {
          Payment payment = new Payment
          {
             Amount = amount,
             Reference = reference,
             PaymentStatus = PaymentStatusType.Pending,
-            Paid_At = DateTime.Now
+            Paid_At = DateTime.Now,
+            Email = email,
+            PaymentMethod = client
          };
 
          _paymentRepository.Add(payment);

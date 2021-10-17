@@ -75,6 +75,7 @@
     <Compile Include="DataTransfer\FlutterwaveDtos\FlutterVerificationData.cs" />
     <Compile Include="DataTransfer\FlutterwaveDtos\FlutterVerificationResponseDto.cs" />
     <Compile Include="DataTransfer\PaymentDetailsResult.cs" />
+    <Compile Include="DataTransfer\PaymentHistoryDTO.cs" />
     <Compile Include="DataTransfer\PaymentResultDTO.cs" />
     <Compile Include="DataTransfer\PaystackDtos\Data.cs" />
     <Compile Include="DataTransfer\PaystackDtos\PaymentReceivedEventDto.cs" />
